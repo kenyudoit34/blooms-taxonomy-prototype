@@ -42,6 +42,8 @@
   .screen{display:none;flex:1;min-height:0;overflow:auto;padding-bottom:8px;scrollbar-width:thin}.screen.active{display:flex;flex-direction:column}.heading{text-align:center;margin:-8px 0 14px}.heading h1{font-size:clamp(34px,3.5vw,66px);line-height:1;margin:0 0 8px;letter-spacing:-1.7px}.heading p{font-size:clamp(17px,1.55vw,28px);color:#627899;font-weight:700;margin:0}.tiny-note{font-size:14px;color:#70839e}
   .btn{border:0;border-radius:999px;padding:16px 34px;cursor:pointer;font-weight:900;font-size:clamp(18px,1.55vw,26px);transition:.18s transform,.18s box-shadow,.18s opacity}.btn:hover{transform:translateY(-2px)}.btn.primary{color:#fff;background:linear-gradient(135deg,#185cc7,#0a839c);box-shadow:0 10px 24px rgba(21,98,180,.24)}.btn.secondary{color:#164979;background:#e9f3fb}.btn.ghost{color:#355b78;background:white;border:2px solid #d7e3ec}.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}.actions{display:flex;justify-content:center;align-items:center;gap:14px;margin-top:12px;flex-wrap:wrap}
   .intro-body{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;max-width:1000px;margin:auto}.intro-copy{background:#f4f9fb;border:1px solid #e0ebf2;border-radius:30px;padding:34px;box-shadow:var(--shadow)}.intro-copy h2{font-size:42px;margin:0 0 12px}.intro-copy p{font-size:22px;line-height:1.45;color:#526a88;margin:0 0 22px}.intro-pyramid{height:390px;display:flex;align-items:flex-end;justify-content:center}.mini-pyramid{width:340px;display:flex;flex-direction:column-reverse;align-items:center;gap:7px}.mini-tier{height:48px;border-radius:15px;width:var(--w);background:var(--c);box-shadow:0 7px 13px rgba(30,63,85,.08)}
+  .perspective-note{font-size:15px;line-height:1.4;color:#47627f;background:#e8f2f9;border-left:5px solid #278bb7;border-radius:12px;padding:11px 14px;margin:0 0 19px;font-weight:700}
+  .completion-card .perspective-note{max-width:650px;margin:12px auto 18px;text-align:left;font-size:16px}
   .cards-row{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:8px auto 14px;max-width:1100px}.level-card,.verb-card{user-select:none;touch-action:none;cursor:grab;border:0;color:#0c2447;font-weight:900;box-shadow:0 9px 17px rgba(29,61,89,.11);transition:.15s transform,.15s box-shadow,.15s opacity}.level-card{min-width:145px;padding:18px 22px;border-radius:20px;font-size:21px;background:var(--card,#c9e7f4)}.level-card:hover,.verb-card:hover{transform:translateY(-3px);box-shadow:0 13px 22px rgba(29,61,89,.15)}.draggable.selected{outline:5px solid #1d7ac4;outline-offset:3px;transform:translateY(-3px)}.draggable.dragging{opacity:.45}
   .sort-zones{display:grid;grid-template-columns:1fr 1fr;gap:24px;width:min(1100px,100%);margin:0 auto}.sort-zone{min-height:255px;border-radius:28px;padding:20px;background:#eef8f2;border:2px solid transparent;transition:.15s}.sort-zone.hots{background:#eef5fb}.zone-head{text-align:center;margin-bottom:12px}.zone-head strong{font-size:32px}.zone-head span{display:block;font-size:18px;color:#47677d}.drop-area{min-height:145px;border:3px dashed #7fd4ae;border-radius:20px;padding:12px;display:flex;gap:10px;align-content:flex-start;align-items:flex-start;flex-wrap:wrap;justify-content:center}.hots .drop-area{border-color:#7ab3e8}.drop-area.dragover,.pyramid-slot.dragover,.verb-drop.dragover{background:rgba(36,137,193,.08);outline:3px solid rgba(36,137,193,.35)}.placeholder{color:#8db4a2;font-size:20px;align-self:center}.hots .placeholder{color:#93afd1}
   .score-banner{margin:6px auto 0;background:#edf6ff;border-radius:999px;padding:11px 20px;font-weight:900;color:#18568c;display:none}.score-banner.show{display:block}
@@ -61,12 +63,12 @@
   .match-side .actions{margin:0;display:flex;justify-content:center}
   .match-side .actions .btn{min-width:300px}
   .match-pyramid{width:100%;max-width:620px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:4px;min-height:0}
-  .match-tier{width:var(--w);height:68px;min-height:68px;border-radius:15px;padding:5px 9px 7px;background:var(--c);display:flex;flex-direction:column;align-items:center;justify-content:flex-start;overflow:hidden}
+  .match-tier{width:100%;height:68px;min-height:68px;border-radius:15px;padding:5px 9px 7px;background:var(--c);display:flex;flex-direction:column;align-items:center;justify-content:flex-start;overflow:hidden}
   .match-tier strong{font-size:16px;line-height:1;margin-bottom:4px}
   .verb-drop{height:38px;min-height:38px;width:100%;border:2px dashed rgba(18,66,92,.35);border-radius:10px;padding:3px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;align-items:center}
-  .verb-bank{background:#f0f7fa;border-radius:27px;padding:18px 20px;box-shadow:var(--shadow);min-height:430px}.bank-title{font-size:31px;font-weight:900;text-align:center;margin-bottom:12px}.verb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.verb-card{padding:11px 10px;border-radius:14px;font-size:16px;text-align:center;background:#dcecf4;box-shadow:none}.verb-card.locked{cursor:default;background:#c9edd7!important;color:#155f36;box-shadow:inset 0 0 0 2px #83c9a0}.verb-card.locked::after{content:" ✓"}.match-tier .verb-card{min-width:0;width:100%;padding:5px 3px;border-radius:10px;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.bank-drop{min-height:40px;border:2px dashed transparent;border-radius:12px;padding:2px}.bank-drop.dragover{border-color:#6dabc7;background:#e6f3f8}
+  .verb-bank{background:#f0f7fa;border-radius:27px;padding:18px 20px;box-shadow:var(--shadow);min-height:430px}.bank-title{font-size:31px;font-weight:900;text-align:center;margin-bottom:12px}.verb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.verb-card{padding:11px 10px;border-radius:14px;font-size:16px;text-align:center;background:#f7f9fb;border:2px solid #cfdbe5;box-shadow:none}.verb-card.locked{cursor:default;background:#f7f9fb!important;color:#0c2447;border-color:#4d91a5;box-shadow:inset 0 0 0 1px #4d91a5}.verb-card.locked::after{content:" ✓";color:#267082}.match-tier .verb-card{min-width:0;width:100%;padding:5px 3px;border-radius:10px;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.bank-drop{min-height:40px;border:2px dashed transparent;border-radius:12px;padding:2px}.bank-drop.dragover{border-color:#6dabc7;background:#e6f3f8}
   .overlay{position:absolute;inset:0;background:rgba(8,31,58,.34);display:none;align-items:center;justify-content:center;z-index:50;padding:30px}.overlay.show{display:flex}.modal{position:relative;width:min(740px,88%);background:white;border-radius:30px;padding:32px 38px;box-shadow:0 30px 80px rgba(4,32,57,.25);text-align:center}.modal h2{font-size:42px;margin:0 0 12px}.modal p{font-size:20px;line-height:1.45;color:#546b86}.one-more{display:inline-block;background:#e8f5ee;color:#1b6e54;border-radius:999px;padding:7px 14px;font-weight:900;margin-bottom:8px}.modal-close{position:absolute;right:18px;top:16px;width:42px;height:42px;border:0;border-radius:50%;background:#eef4f8;color:var(--navy);font-size:28px;line-height:1;cursor:pointer;font-weight:900}.modal-close:hover{background:#dfeaf2}.feedback-modal{width:min(930px,92%);max-height:82%;overflow:auto;text-align:left;padding:30px 34px}.feedback-modal h2{text-align:center;font-size:34px;padding:0 46px}.feedback-modal .modal-score{text-align:center;width:max-content;max-width:100%;margin:6px auto 18px;background:#edf6ff;border-radius:999px;padding:10px 18px;font-weight:900;color:#18568c}.feedback-modal .feedback-grid{margin-top:8px}.feedback-modal .modal-lead{text-align:center;color:#536b87;font-size:17px;line-height:1.4;margin:0 auto 16px;max-width:720px}.feedback-modal .actions{position:sticky;bottom:-30px;background:linear-gradient(to bottom,rgba(255,255,255,.75),#fff 28%);padding:20px 0 2px;margin-top:12px}
-  .completion-card{width:min(850px,90%);margin:auto;background:#f4f9fb;border:1px solid #e0ebf2;border-radius:32px;padding:42px;text-align:center;box-shadow:var(--shadow)}.completion-card h2{font-size:50px;margin:0 0 10px}.completion-card p{font-size:23px;color:#59708c;line-height:1.5}.completion-pyramid{width:260px;margin:18px auto 24px;display:flex;flex-direction:column-reverse;align-items:center;gap:5px}.completion-pyramid div{height:34px;width:var(--w);background:var(--c);border-radius:10px}
+  .completion-card{width:min(850px,90%);margin:auto;background:#f4f9fb;border:1px solid #e0ebf2;border-radius:32px;padding:42px;text-align:center;box-shadow:var(--shadow)}.completion-card h2{font-size:50px;margin:0 0 10px}.completion-card p{font-size:23px;color:#59708c;line-height:1.5}.completion-pyramid{width:300px;margin:18px auto 24px;display:flex;flex-direction:column-reverse;align-items:center;gap:5px}.completion-pyramid div{height:34px;width:100%;background:var(--c);border-radius:10px}
   .toast{position:absolute;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);background:#102e52;color:white;padding:13px 20px;border-radius:999px;font-weight:800;opacity:0;pointer-events:none;transition:.2s;z-index:45;box-shadow:var(--shadow)}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
   .sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
   @media(max-width:1150px){.audio-btn{padding:0;width:44px;min-width:44px}.audio-btn .audio-label{display:none}.app{grid-template-columns:210px 1fr;min-height:760px;aspect-ratio:auto}.sidebar{padding-left:24px}.step{width:120px}.step:not(:last-child)::after{left:78px;width:90px}.build-layout,.match-layout{gap:15px;grid-template-columns:1fr 1fr}.source-groups{grid-template-columns:1fr}.source-box{min-height:210px}.scatter{height:125px}.scatter .level-card{position:static!important;display:inline-block;margin:8px 5px}.verb-bank{min-height:420px}.feedback-grid{grid-template-columns:1fr}}
@@ -110,6 +112,7 @@
           <div class="intro-copy">
             <h2>Build Bloom’s Taxonomy</h2>
             <p>Complete three short challenges to build the taxonomy from the ground up: first sort the levels, then build the pyramid, and finally match action verbs to each level.</p>
+            <div class="perspective-note">The pyramid shows a progression, not relative importance. All six levels have value.</div>
             <button class="btn primary" id="startBtn">Start activity →</button>
           </div>
           <div class="intro-pyramid" aria-hidden="true">
@@ -142,7 +145,7 @@
       </section>
 
       <section class="screen" id="buildScreen" aria-labelledby="buildTitle">
-        <div class="heading"><h1 id="buildTitle">Build the Pyramid</h1><p>Place each level in the correct order.</p></div>
+        <div class="heading"><h1 id="buildTitle">Build the Pyramid</h1><p>Arrange the six levels in the correct order.</p></div>
         <div class="build-layout">
           <div class="pyramid-wrap">
             <div class="attempt" id="attemptLabel">Attempt 1 of 3</div>
@@ -155,7 +158,7 @@
         </div>
         <div class="score-banner" id="buildScore"></div>
         <div class="feedback-panel" id="buildFeedback">
-          <strong>Let’s look at how the levels build on one another.</strong>
+          <strong>Let’s look at how the levels progress from one to the next.</strong>
           <div class="explain-sequence" id="sequenceExplain"></div>
         </div>
         <div class="actions" id="buildActions"><button class="btn primary" id="buildCheck">Check →</button></div>
@@ -183,6 +186,7 @@
           <div class="completion-pyramid" aria-hidden="true">
             <div style="--w:100%;--c:#cbd8e7"></div><div style="--w:88%;--c:#ffd66b"></div><div style="--w:76%;--c:#84d5ef"></div><div style="--w:64%;--c:#b9dcb2"></div><div style="--w:52%;--c:#91b9df"></div><div style="--w:40%;--c:#ffb45f"></div>
           </div>
+          <div class="perspective-note">Another way to view the taxonomy: equal-width levels emphasise that every thinking process has value. The pyramid shows progression, not importance.</div>
           <p><strong>Next:</strong> use this knowledge to write better Intended Learning Outcomes (ILOs).</p>
           <div class="actions"><button class="btn secondary" id="restartEnd">Try the activity again</button></div>
         </div>
@@ -279,7 +283,7 @@
   function showScreen(id,step=0){$$('.screen').forEach(x=>x.classList.remove('active'));$(id).classList.add('active');current=step;updateProgress(step)}
   function updateProgress(step){$$('.step').forEach((el,i)=>{el.classList.toggle('active',i+1===step);el.classList.toggle('done',i+1<step)})}
   function makeLevelCard(level, idx=0){const b=document.createElement('button');b.type='button';b.className='level-card draggable';b.dataset.kind='level';b.dataset.id=level.id;b.style.setProperty('--card',cardColors[idx%cardColors.length]);b.textContent=level.label;b.setAttribute('draggable','true');b.setAttribute('aria-label',`${level.label}, draggable`);wireDraggable(b);return b}
-  function makeVerbCard(v,idx=0){const b=document.createElement('button');b.type='button';b.className='verb-card draggable';b.dataset.kind='verb';b.dataset.id=v.id;b.textContent=v.label;b.style.background=cardColors[idx%cardColors.length];b.setAttribute('draggable','true');wireDraggable(b);return b}
+  function makeVerbCard(v,idx=0){const b=document.createElement('button');b.type='button';b.className='verb-card draggable';b.dataset.kind='verb';b.dataset.id=v.id;b.textContent=v.label;b.setAttribute('draggable','true');wireDraggable(b);return b}
   function wireDraggable(el){el.addEventListener('dragstart',e=>{if(el.classList.contains('locked')){e.preventDefault();return}el.dataset.dragged='1';playSfx('select');selected=el;el.classList.add('dragging');e.dataTransfer.setData('text/plain',el.dataset.id)});el.addEventListener('dragend',()=>{el.classList.remove('dragging');setTimeout(()=>delete el.dataset.dragged,120)});el.addEventListener('click',e=>{if(el.classList.contains('locked')||el.dataset.dragged)return;e.stopPropagation();playSfx('select');selectEl(el)})}
   function selectEl(el){$$('.draggable.selected').forEach(x=>x.classList.remove('selected'));if(selected===el){selected=null;return}selected=el;el.classList.add('selected');announce(`${el.textContent} selected. Choose a destination.`)}
   function clearSelection(){if(selected)selected.classList.remove('selected');selected=null}
@@ -350,7 +354,7 @@
   function buildScore(){let score=0;$$('#buildPyramid .pyramid-slot').forEach(slot=>{const c=slot.querySelector('.level-card');if(c&&LEVELS[+slot.dataset.slot].id===c.dataset.id)score++});return score}
   function checkBuild(){
     playSfx('check');
-    if(!buildAllPlaced()){toast('Place all six levels in the pyramid before checking.');return}
+    if(!buildAllPlaced()){toast('Place all six levels in the taxonomy before checking.');return}
     const score=buildScore();
     $('#buildScore').textContent=`${score} of 6 are in the correct position.`;$('#buildScore').classList.add('show');
 
@@ -359,9 +363,9 @@
       $('#buildActions').innerHTML='<button class="btn primary" id="buildContinue">Continue →</button>';
       $('#buildContinue').onclick=()=>{initMatch();showScreen('#matchScreen',3)};
       showFeedbackModal({
-        title:'You built the pyramid!',
+        title:'You built Bloom’s Taxonomy!',
         score:'6 of 6 correct',
-        lead:'You placed all six Bloom’s Taxonomy levels in the correct order.',
+        lead:'You placed all six levels in order. Remember: the pyramid shows a progression of thinking processes, not their relative importance. Every level matters.',
         actions:[{label:'Continue →',kind:'primary',onClick:()=>{initMatch();showScreen('#matchScreen',3)}}]
       });
       announce('6 of 6 correct. You built Bloom’s Taxonomy.');return
@@ -392,7 +396,7 @@
     const reopen=()=>showFeedbackModal({
       title:'Let’s look at the progression',
       score:`${score} of 6 correct after three attempts`,
-      lead:'Here is how the six levels build on one another from lower- to higher-order thinking.',
+      lead:'Here is how the levels progress from lower- to higher-order thinking. The pyramid’s changing width does not indicate importance; all six levels matter.',
       body:seq.cloneNode(true),
       actions:[
         {label:'Try again',kind:'secondary',onClick:initBuild},
@@ -404,7 +408,7 @@
     announce(`${score} of 6 correct after three attempts. The correct progression is now explained in a dialog.`)
   }
 
-  function initMatch(){VERBS.forEach(v=>v.locked=false);$('#matchScore').classList.remove('show');$('#matchCheck').onclick=checkMatch;const mp=$('#matchPyramid');mp.innerHTML='';[...LEVELS].reverse().forEach((l,ri)=>{const idx=5-ri;const t=document.createElement('div');t.className='match-tier';t.style.setProperty('--w',tierWidths[idx]);t.style.setProperty('--c',tierColors[l.id]);t.innerHTML=`<strong>${l.label}</strong><div class="verb-drop drop-target" data-level="${l.id}" tabindex="0" aria-label="${l.label} verb drop zone"></div>`;mp.appendChild(t);setupDrop(t.querySelector('.verb-drop'),moveVerb)});renderVerbBank();clearSelection()}
+  function initMatch(){VERBS.forEach(v=>v.locked=false);$('#matchScore').classList.remove('show');$('#matchCheck').onclick=checkMatch;const mp=$('#matchPyramid');mp.innerHTML='';[...LEVELS].reverse().forEach((l,ri)=>{const idx=5-ri;const t=document.createElement('div');t.className='match-tier';t.style.setProperty('--c',tierColors[l.id]);t.innerHTML=`<strong>${l.label}</strong><div class="verb-drop drop-target" data-level="${l.id}" tabindex="0" aria-label="${l.label} verb drop zone"></div>`;mp.appendChild(t);setupDrop(t.querySelector('.verb-drop'),moveVerb)});renderVerbBank();clearSelection()}
   function renderVerbBank(){const grid=$('#verbGrid');grid.innerHTML='';shuffle(VERBS.filter(v=>!v.locked)).forEach((v,i)=>grid.appendChild(makeVerbCard(v,i)))}
   function moveVerb(card,target){if(card.dataset.kind!=='verb'||card.classList.contains('locked'))return;let moved=false;if(target.dataset.level){const zone=target;if(zone.querySelectorAll('.verb-card:not(.locked)').length+zone.querySelectorAll('.verb-card.locked').length>=3){toast('Each level has three verb slots.');return}zone.appendChild(card);moved=true}else if(target.dataset.bankReturn||target.closest?.('[data-bank-return]')){$('#verbGrid').appendChild(card);moved=true}if(moved)playSfx('drop');clearSelection()}
   function allUnlockedPlaced(){return $('#verbGrid').querySelectorAll('.verb-card').length===0}
